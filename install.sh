@@ -7,9 +7,12 @@ readonly DOTFILES_REPO_URL="${DOTFILES_REPO_URL:-https://github.com/git-alice/do
 readonly DOTFILES_BRANCH="${DOTFILES_BRANCH:-main}"
 readonly DOTFILES_INSTALL_DIR="${DOTFILES_INSTALL_DIR:-${HOME}/.config/zsh-dotfiles}"
 readonly ZDOTFILES_ZSHRC="${ZDOTFILES_ZSHRC:-${HOME}/.zshrc}"
+readonly ZDOTFILES_TMUX_CONF="${ZDOTFILES_TMUX_CONF:-${HOME}/.tmux.conf}"
 
 readonly BLOCK_BEGIN="# >>> zsh-dotfiles >>>"
 readonly BLOCK_END="# <<< zsh-dotfiles <<<"
+readonly TMUX_BLOCK_BEGIN="# >>> zsh-dotfiles tmux >>>"
+readonly TMUX_BLOCK_END="# <<< zsh-dotfiles tmux <<<"
 
 log() {
   print -r -- "[zsh-dotfiles] $*"
@@ -49,6 +52,7 @@ install_macos_dependencies() {
     git
     zsh
     fzf
+    tmux
     starship
     ripgrep
     fd
@@ -155,10 +159,54 @@ write_managed_source_block() {
   log "Updated $ZDOTFILES_ZSHRC and saved backup to $backup_file"
 }
 
+write_managed_tmux_block() {
+  local tmp_file
+  local backup_file
+  local source_file="${DOTFILES_INSTALL_DIR}/tmux/tmux.conf"
+
+  mkdir -p "${ZDOTFILES_TMUX_CONF:h}"
+  [[ -f "$ZDOTFILES_TMUX_CONF" ]] || : > "$ZDOTFILES_TMUX_CONF"
+
+  tmp_file="${ZDOTFILES_TMUX_CONF}.tmp.$$"
+
+  awk -v begin="$TMUX_BLOCK_BEGIN" -v end="$TMUX_BLOCK_END" '
+    $0 == begin { skip = 1; next }
+    $0 == end { skip = 0; next }
+    !skip { lines[++n] = $0 }
+    END {
+      while (n > 0 && lines[n] == "") n--
+      for (i = 1; i <= n; i++) print lines[i]
+    }
+  ' "$ZDOTFILES_TMUX_CONF" > "$tmp_file"
+
+  if [[ -s "$tmp_file" ]]; then
+    print -r -- "" >> "$tmp_file"
+    print -r -- "" >> "$tmp_file"
+  fi
+
+  {
+    print -r -- "$TMUX_BLOCK_BEGIN"
+    print -r -- "if-shell \"test -f '$source_file'\" \"source-file '$source_file'\""
+    print -r -- "$TMUX_BLOCK_END"
+  } >> "$tmp_file"
+
+  if cmp -s "$ZDOTFILES_TMUX_CONF" "$tmp_file"; then
+    rm -f "$tmp_file"
+    log "Managed tmux block is already up to date in $ZDOTFILES_TMUX_CONF"
+    return
+  fi
+
+  backup_file="${ZDOTFILES_TMUX_CONF}.backup.$(date +%Y%m%d-%H%M%S)"
+  cp "$ZDOTFILES_TMUX_CONF" "$backup_file"
+  mv "$tmp_file" "$ZDOTFILES_TMUX_CONF"
+  log "Updated $ZDOTFILES_TMUX_CONF and saved backup to $backup_file"
+}
+
 main() {
   install_dependencies
   sync_repo
   write_managed_source_block
+  write_managed_tmux_block
   log "Done. Open a new Zsh session or run: source $ZDOTFILES_ZSHRC"
 }
 
