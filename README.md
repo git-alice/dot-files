@@ -17,7 +17,7 @@ Rerun the install command. The bootstrap updates the managed repository and refr
 ## Local Development
 
 ```sh
-zsh -n install.sh zsh/*.zsh
+for file in install.sh zsh/*.zsh; do zsh -n "$file"; done
 ```
 
 To load the modules without fetching plugins:

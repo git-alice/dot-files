@@ -3,6 +3,7 @@
 typeset -g ZSH_DOTFILES_DIR="${ZSH_DOTFILES_DIR:-${${(%):-%N}:A:h:h}}"
 
 for _zsh_dotfiles_module in \
+  path \
   history \
   plugins \
   completion \

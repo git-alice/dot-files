@@ -82,10 +82,10 @@ install_dependencies() {
 
 ensure_clean_repo() {
   local repo_dir="$1"
-  local status
+  local repo_status
 
-  status="$(git -C "$repo_dir" status --porcelain)"
-  if [[ -n "$status" ]]; then
+  repo_status="$(git -C "$repo_dir" status --porcelain)"
+  if [[ -n "$repo_status" ]]; then
     die "Local changes found in $repo_dir. Commit, stash, or remove them before rerunning the bootstrap."
   fi
 }

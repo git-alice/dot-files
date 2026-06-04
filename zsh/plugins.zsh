@@ -7,13 +7,15 @@ typeset -g ZINIT_HOME="${ZINIT_HOME:-${XDG_DATA_HOME:-${HOME}/.local/share}/zini
 if [[ ! -r "${ZINIT_HOME}/zinit.zsh" ]]; then
   if command -v git >/dev/null 2>&1; then
     mkdir -p "${ZINIT_HOME:h}"
-    git clone --depth=1 https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+    git clone --depth=1 https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME" || return
   else
     return
   fi
 fi
 
+[[ -r "${ZINIT_HOME}/zinit.zsh" ]] || return
 source "${ZINIT_HOME}/zinit.zsh"
+typeset -f zinit >/dev/null 2>&1 || return
 
 ZSH_AUTOSUGGEST_STRATEGY=(history)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
