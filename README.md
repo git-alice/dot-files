@@ -12,18 +12,9 @@ curl -fsSL https://raw.githubusercontent.com/git-alice/dot-files/main/install.sh
 
 ## Main Points
 
-- `@ii`: terminal LLM helper powered by the `llm` CLI.
+- `@ii`: terminal LLM helper powered by `llm`. Example: `@ii command to generate a secure password`; with stdin: `cat error.log | @ii explain this error`.
 
-```sh
-@ii command to generate a secure password
-cat error.log | @ii explain this error
-```
-
-> Configure `llm` separately:
-
-```sh
-llm keys set openai
-```
+> Configure `llm`: `llm keys set openai`
 
 - `tmux`: prefix is remapped from `Ctrl-b` to backtick.
 
