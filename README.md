@@ -1,6 +1,6 @@
 # Terminal Dotfiles
 
-Personal terminal dotfiles with Zsh configuration, Zinit plugins, shared history, fzf search, native completions, guarded shell companion integrations, a Starship prompt, tmux prefix settings, and a terminal LLM helper.
+Small macOS terminal setup for Zsh, tmux, Starship, shell companions, and quick LLM requests.
 
 ## Install
 
@@ -8,32 +8,31 @@ Personal terminal dotfiles with Zsh configuration, Zinit plugins, shared history
 curl -fsSL https://raw.githubusercontent.com/git-alice/dot-files/main/install.sh | zsh
 ```
 
-The bootstrap clones this repository into `~/.config/zsh-dotfiles`, installs missing macOS dependencies with Homebrew, backs up `~/.zshrc` and `~/.tmux.conf`, and adds managed source blocks that load `zsh/init.zsh` and `tmux/tmux.conf`.
+Installs missing Homebrew packages, clones the repo into `~/.config/zsh-dotfiles`, and adds managed blocks to `~/.zshrc` and `~/.tmux.conf`.
 
-## LLM Helper
+## Update
 
-Use `@ii` to ask the configured `llm` CLI from the terminal:
+Rerun the install command.
+
+## Main Points
+
+- `@ii`: terminal LLM helper powered by the `llm` CLI.
 
 ```sh
 @ii command to generate a secure password
 cat error.log | @ii explain this error
 ```
 
-Configure the `llm` CLI separately, for example with `llm keys set openai`.
+- `tmux`: prefix is remapped from `Ctrl-b` to backtick.
 
-## Update
-
-Rerun the install command. The bootstrap updates the managed repository and refreshes only its marked blocks in `~/.zshrc` and `~/.tmux.conf`. If local changes exist in `~/.config/zsh-dotfiles`, it stops before pulling.
-
-## Local Development
-
-```sh
-for file in install.sh zsh/*.zsh; do zsh -n "$file"; done
-tmux -f /dev/null source-file tmux/tmux.conf
+```text
+` then key
 ```
 
-To load the modules without fetching plugins:
+- Zsh: shared history, completions, syntax highlighting, autosuggestions, fzf, guarded `eza`/`bat`/`zoxide` integrations, and Starship prompt.
+
+Configure `llm` separately, for example:
 
 ```sh
-ZSH_DOTFILES_DISABLE_PLUGINS=1 zsh -dfc 'source zsh/init.zsh'
+llm keys set openai
 ```
