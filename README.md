@@ -16,11 +16,7 @@ curl -fsSL https://raw.githubusercontent.com/git-alice/dot-files/main/install.sh
 
 > Configure `llm`: `llm keys set openai`
 
-- `tmux`: prefix is remapped from `Ctrl-b` to backtick.
-
-```text
-` then key
-```
+- `tmux`: `Ctrl-b` -> backtick.
 
 ## Update
 
