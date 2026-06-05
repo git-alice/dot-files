@@ -10,10 +10,6 @@ curl -fsSL https://raw.githubusercontent.com/git-alice/dot-files/main/install.sh
 
 Installs missing Homebrew packages, clones the repo into `~/.config/zsh-dotfiles`, and adds managed blocks to `~/.zshrc` and `~/.tmux.conf`.
 
-## Update
-
-Rerun the install command.
-
 ## Main Points
 
 - `@ii`: terminal LLM helper powered by the `llm` CLI.
@@ -21,6 +17,12 @@ Rerun the install command.
 ```sh
 @ii command to generate a secure password
 cat error.log | @ii explain this error
+```
+
+Configure `llm` separately:
+
+```sh
+llm keys set openai
 ```
 
 - `tmux`: prefix is remapped from `Ctrl-b` to backtick.
@@ -31,8 +33,20 @@ cat error.log | @ii explain this error
 
 - Zsh: shared history, completions, syntax highlighting, autosuggestions, fzf, guarded `eza`/`bat`/`zoxide` integrations, and Starship prompt.
 
-Configure `llm` separately, for example:
+## Update
 
-```sh
-llm keys set openai
-```
+Rerun the install command.
+
+## Used
+
+- [Zsh](https://www.zsh.org/)
+- [Zinit](https://github.com/zdharma-continuum/zinit)
+- [Starship](https://starship.rs/)
+- [tmux](https://github.com/tmux/tmux)
+- [llm](https://llm.datasette.io/)
+- [fzf](https://github.com/junegunn/fzf)
+- [fd](https://github.com/sharkdp/fd)
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [eza](https://github.com/eza-community/eza)
+- [bat](https://github.com/sharkdp/bat)
+- [zoxide](https://github.com/ajeetdsouza/zoxide)
