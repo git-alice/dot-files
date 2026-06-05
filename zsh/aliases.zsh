@@ -13,10 +13,6 @@ else
   alias la="ls -A"
 fi
 
-if command -v bat >/dev/null 2>&1; then
-  alias cat="bat --paging=never"
-fi
-
 mkcd() {
   mkdir -p "$1" && cd "$1"
 }
