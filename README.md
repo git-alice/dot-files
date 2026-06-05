@@ -8,7 +8,7 @@ Fast terminal setup for macOS.
 curl -fsSL https://raw.githubusercontent.com/git-alice/dot-files/main/install.sh | zsh
 ```
 
-Installs missing Homebrew packages, clones the repo into `~/.config/zsh-dotfiles`, and adds managed blocks to `~/.zshrc` and `~/.tmux.conf`.
+> Installs missing Homebrew packages, clones the repo into `~/.config/zsh-dotfiles`, and adds managed blocks to `~/.zshrc` and `~/.tmux.conf`.
 
 ## Main Points
 
@@ -19,7 +19,7 @@ Installs missing Homebrew packages, clones the repo into `~/.config/zsh-dotfiles
 cat error.log | @ii explain this error
 ```
 
-Configure `llm` separately:
+> Configure `llm` separately:
 
 ```sh
 llm keys set openai
