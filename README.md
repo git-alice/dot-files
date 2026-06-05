@@ -1,6 +1,6 @@
 # Terminal Dotfiles
 
-Small macOS terminal setup for Zsh, tmux, Starship, shell companions, and quick LLM requests.
+Fast terminal setup for macOS.
 
 ## Install
 
@@ -31,22 +31,10 @@ llm keys set openai
 ` then key
 ```
 
-- Zsh: shared history, completions, syntax highlighting, autosuggestions, fzf, guarded `eza`/`bat`/`zoxide` integrations, and Starship prompt.
-
 ## Update
 
 Rerun the install command.
 
 ## Used
 
-- [Zsh](https://www.zsh.org/)
-- [Zinit](https://github.com/zdharma-continuum/zinit)
-- [Starship](https://starship.rs/)
-- [tmux](https://github.com/tmux/tmux)
-- [llm](https://llm.datasette.io/)
-- [fzf](https://github.com/junegunn/fzf)
-- [fd](https://github.com/sharkdp/fd)
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
-- [eza](https://github.com/eza-community/eza)
-- [bat](https://github.com/sharkdp/bat)
-- [zoxide](https://github.com/ajeetdsouza/zoxide)
+[Zsh](https://www.zsh.org/) / [Zinit](https://github.com/zdharma-continuum/zinit) / [Starship](https://starship.rs/) / [tmux](https://github.com/tmux/tmux) / [llm](https://llm.datasette.io/) / [fzf](https://github.com/junegunn/fzf) / [fd](https://github.com/sharkdp/fd) / [ripgrep](https://github.com/BurntSushi/ripgrep) / [eza](https://github.com/eza-community/eza) / [bat](https://github.com/sharkdp/bat) / [zoxide](https://github.com/ajeetdsouza/zoxide)
