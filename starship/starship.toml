@@ -13,16 +13,16 @@ format = "on [$hostname]($style) "
 format = "[$path]($style) "
 truncation_length = 3
 truncate_to_repo = false
-style = "fg:#7dd8d8"
+style = "fg:#49d6e9"
 
 [git_branch]
 format = "[$symbol$branch]($style) "
 symbol = "git:"
-style = "fg:#d8a0e8"
+style = "fg:#df769b"
 
 [git_status]
 format = "([$all_status$ahead_behind]($style) )"
-style = "fg:#e8c27a"
+style = "fg:#e4b781"
 staged = "+"
 modified = "!"
 deleted = "x"
@@ -41,8 +41,8 @@ format = "[py $version]($style) "
 [cmd_duration]
 min_time = 1000
 format = "[$duration]($style) "
-style = "fg:#e8c27a"
+style = "fg:#e4b781"
 
 [character]
-success_symbol = "[>](fg:#9bdc8b)"
-error_symbol = "[>](fg:#e88f97)"
+success_symbol = "[>](fg:#49e9a6)"
+error_symbol = "[>](fg:#e66533)"
