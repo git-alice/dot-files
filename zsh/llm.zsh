@@ -1,5 +1,7 @@
 # Lightweight terminal LLM helper. Provider/model configuration belongs to the llm CLI.
 
+unalias @ii 2>/dev/null || true
+
 @ii() {
   emulate -L zsh
 
@@ -35,3 +37,5 @@ $stdin_text"
 
   llm --system "$system_prompt" "$prompt"
 }
+
+alias @ii="noglob @ii"
