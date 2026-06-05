@@ -1,6 +1,6 @@
 # Terminal Dotfiles
 
-Personal terminal dotfiles with Zsh configuration, Zinit plugins, shared history, fzf search, native completions, guarded shell companion integrations, a Starship prompt, and tmux prefix settings.
+Personal terminal dotfiles with Zsh configuration, Zinit plugins, shared history, fzf search, native completions, guarded shell companion integrations, a Starship prompt, tmux prefix settings, and a terminal LLM helper.
 
 ## Install
 
@@ -9,6 +9,17 @@ curl -fsSL https://raw.githubusercontent.com/git-alice/dot-files/main/install.sh
 ```
 
 The bootstrap clones this repository into `~/.config/zsh-dotfiles`, installs missing macOS dependencies with Homebrew, backs up `~/.zshrc` and `~/.tmux.conf`, and adds managed source blocks that load `zsh/init.zsh` and `tmux/tmux.conf`.
+
+## LLM Helper
+
+Use `@ii` to ask the configured `llm` CLI from the terminal:
+
+```sh
+@ii command to generate a secure password
+cat error.log | @ii explain this error
+```
+
+Configure the `llm` CLI separately, for example with `llm keys set openai`.
 
 ## Update
 

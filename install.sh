@@ -53,6 +53,7 @@ install_macos_dependencies() {
     zsh
     fzf
     tmux
+    llm
     starship
     ripgrep
     fd

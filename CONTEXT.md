@@ -16,6 +16,10 @@ _Avoid_: Shell setup, terminal setup
 The tmux configuration loaded from the Managed Config Directory to define terminal multiplexer behavior such as the prefix key.
 _Avoid_: Tmux setup, terminal config
 
+**LLM Request**:
+A natural-language request sent from the terminal to the configured `llm` CLI through the `@ii` helper.
+_Avoid_: AI command, chat command
+
 **Bootstrap**:
 The one-line entry point that prepares a machine to use the Terminal Dotfiles from a GitHub-hosted install script.
 _Avoid_: Setup, installer, provisioning

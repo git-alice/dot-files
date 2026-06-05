@@ -8,6 +8,7 @@ for _zsh_dotfiles_module in \
   plugins \
   completion \
   tools \
+  llm \
   aliases \
   keybindings \
   prompt
